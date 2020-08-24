@@ -2,7 +2,7 @@
 Ahead of the Rio de Janeiro Olympics, an athlete (preferred to remain anonymous) is suspected of using prohibited supplements.
 One of their side effects is increased liver. The Disciplinary Committee has decided to examine the athlete's liver using 
 an abdomen CT scan.
-One section of the received scan is attached (Liver_CT.bmp)
+One section of the received scan is attached (Liver_CT.bmp), and the result after applying threshold (Binary.bmp).
 Write an algorithm that separates the liver from the other organs, finds its area and its boundaries using connected components and morphological operators.
 
 Display the following:
@@ -15,3 +15,6 @@ This question was part of Medical Image Processing Course HW (0555452001) (Tel A
 
 ## Input Abdomen CT
 ![Liver CT](/Liver_CT.bmp)
+
+## Abdomen CT after applying threshold
+![Binary.bmo](/Binary.bmp)
