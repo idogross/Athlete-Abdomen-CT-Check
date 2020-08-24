@@ -11,25 +11,25 @@ se_circ = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (26, 26))
 opened = cv2.morphologyEx(src=image, dst=mask, kernel=se_circ, op=cv2.MORPH_OPEN)
 
 # show opened image
-# cv2.imshow('Opening', opened)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
+cv2.imshow('Opening', opened)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 # connected components
-retval, labels = cv2.connectedComponents(opened)
+_, labels = cv2.connectedComponents(opened)
 area = np.sum(labels[labels == 1])
 labels[labels != 1] = 0
 labels[labels == 1] = 255
 mask_liver = labels.astype(np.uint8)
 
 # show liver
-cv2.imshow(f'Area of liver in pixels: {str(int(np.sum(mask_liver)/255))}', mask_liver)
+cv2.imshow(f'Area of liver in pixels: {str(int(area))}', mask_liver)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # Liver bounadries
 mask2 = np.zeros(image.shape)
-SE_circ2 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))
+SE_circ2 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
 eroded = cv2.morphologyEx(src=mask_liver, dst=mask2, kernel=SE_circ2, op=cv2.MORPH_ERODE)
 Liver_boundary = mask_liver - eroded
 
